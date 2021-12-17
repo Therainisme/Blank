@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank</title>
+</head>
+
+<style>
+    #textarea {
+        font-size: 50px;
+        width: 100%;
+        resize: none;
+        margin-bottom: 8vw;
+        padding: 20px;
+        outline: none;
+        font-family: Lyon-Text, Georgia, ui-serif, serif;
+    }
+</style>
+
+<body style="padding-left: 8vw; padding-right: 8vw; padding-bottom: 8vw; padding-top: 10vh;">
+    <div id="textarea" contenteditable="true" autofocus='autofocus' onkeyup="handleTextareaOnChange()"></div>
+</body>
+
+<script>
+    const textarea = document.getElementById("textarea");
+
+    function handleTextareaOnChange() {
+        console.log(textarea.innerText);
+        localStorage.setItem("text", textarea.innerText)
+    }
+
+    (function() {
+        textarea.innerText = localStorage.getItem("text");
+    }())
+</script>
+
+</html>
